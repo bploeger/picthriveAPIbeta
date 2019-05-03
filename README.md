@@ -13,20 +13,7 @@ PHP 5.5 and later
 ## Installation & Usage
 ### Composer
 
-To install the bindings via [Composer](http://getcomposer.org/), add the following to `composer.json`:
-
-```
-{
-  "repositories": [
-    {
-      "type": "path",
-      "url": "/local/path/to/this/package"
-    }
-  ]
-}
-```
-
-Then run `composer require "picthrive/php-client @dev"`
+To install run `composer require "bploeger/picthrive"`
 
 
 ## Getting Started
