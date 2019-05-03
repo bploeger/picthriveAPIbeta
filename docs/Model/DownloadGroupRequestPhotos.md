@@ -1,0 +1,12 @@
+# DownloadGroupRequestPhotos
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**file** | **string** | The url path to the photo to download | 
+**file_name** | **string** | What to save the file as. | 
+**region** | [**\OpenAPI\Client\Model\Region**](Region.md) |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
