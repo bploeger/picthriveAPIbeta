@@ -311,6 +311,7 @@ class ObjectSerializer
                 }
             }
             $instance = new $class();
+
             foreach ($instance::openAPITypes() as $property => $type) {
                 $propertySetter = $instance::setters()[$property];
 

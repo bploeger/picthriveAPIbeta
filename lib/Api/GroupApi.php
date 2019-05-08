@@ -928,7 +928,7 @@ class GroupApi
      */
     public function getGroup($group_id)
     {
-        list($response) = $this->getGroupWithHttpInfo($group_id);
+        $response = $this->getGroupWithHttpInfo($group_id);        
         return $response;
     }
 
@@ -958,8 +958,7 @@ class GroupApi
                     $e->getResponse() ? $e->getResponse()->getHeaders() : null,
                     $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
                 );
-            }
-
+            }            
             $statusCode = $response->getStatusCode();
 
             if ($statusCode < 200 || $statusCode > 299) {
@@ -975,20 +974,24 @@ class GroupApi
                 );
             }
 
-            $responseBody = $response->getBody();
+            $responseBody = $response->getBody(); 
+
+            $content = $responseBody->getContents();
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\Group' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\Group' === '\SplFileObject') {                        
                         $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                    }
-
-                    return [
+                    } else {                        
+                        //dd($content);
+                        //$content = $responseBody->getContents();
+                        //dd($content);
+                    }                                     
+                    return $content;
+                    /*[
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\Group', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
-                    ];
+                    ];*/
             }
 
             $returnType = '\OpenAPI\Client\Model\Group';
@@ -1740,7 +1743,7 @@ class GroupApi
      */
     public function listGroups($when = null)
     {
-        list($response) = $this->listGroupsWithHttpInfo($when);
+        $response = $this->listGroupsWithHttpInfo($when);
         return $response;
     }
 
@@ -1792,15 +1795,16 @@ class GroupApi
                 case 200:
                     if ('\OpenAPI\Client\Model\GetGroupsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
-                    } else {
+                    } else {                       
                         $content = $responseBody->getContents();
-                    }
 
-                    return [
+                    }
+                    return $content;
+                    /*return [
                         ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\GetGroupsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
-                    ];
+                    ];*/
             }
 
             $returnType = '\OpenAPI\Client\Model\GetGroupsResponse';
